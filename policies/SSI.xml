@@ -1,0 +1,34 @@
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="SSI"
+   RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
+   Version="1.0">
+   <Target>
+      <AnyOf>
+         <AllOf>
+            <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MMA</AttributeValue>
+               <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+            </Match>
+         </AllOf>
+      </AnyOf>
+   </Target>
+
+   <Rule Effect="Permit" RuleId="permit-role">
+      <Target>
+         <AnyOf>
+            <AllOf>
+               <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Certified Solidity Developer 2</AttributeValue>
+                  <AttributeDesignator
+                     AttributeId="credentialSubject.achievement"
+                     Category="https://beta.api.schemas.serto.id/v1/public/program-completion-certificate/1.0/json-schema.json"
+                     DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+               </Match>
+            </AllOf>
+         </AnyOf>
+      </Target>
+   </Rule>
+
+   <!-- <Rule RuleId="deny-rule" Effect="Deny" /> -->
+</Policy>
