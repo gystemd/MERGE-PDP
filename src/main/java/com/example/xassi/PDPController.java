@@ -1,13 +1,20 @@
 package com.example.xassi;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.wso2.balana.Balana;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,6 +27,9 @@ import org.wso2.balana.finder.AttributeFinder;
 import org.wso2.balana.finder.AttributeFinderModule;
 import org.wso2.balana.finder.impl.FileBasedPolicyFinderModule;
 import jakarta.annotation.PostConstruct;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -27,22 +37,52 @@ public class PDPController {
     private static Balana balana;
     private static PDP pdp;
     private static PDPConfig pdpConfig;
+    private Connection conn;
 
     @PostConstruct
     private void init() {
         initBalana();
         pdp = getPDPNewInstance();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/resource_policy?useSSL=false";
+            String user = "user1";
+            String password = "password";
+            conn = DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // @GetMapping("/resources")
+
+    @PostMapping("/upload")
+    public String upload(@RequestBody String policy, @RequestParam("file") MultipartFile file) {
+        String message = "";
+        try {
+            // Get the file and save it somewhere
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get("resources/" + file.getOriginalFilename());
+            Files.write(path, bytes);
+
+            message = "Successfully uploaded " + file.getOriginalFilename() + "!";
+        } catch (IOException e) {
+            message = "Failed to upload " + file.getOriginalFilename() + "!";
+        }
+
+        return message;
     }
 
     @PostMapping("/evaluate")
     public boolean evaluate(@RequestBody String request) {
-        String processedRequest= request.substring(1, request.length() - 1).replace("\\", "");
+        String processedRequest = request.substring(1, request.length() - 1).replace("\\", "");
 
         System.out.println(processedRequest);
         System.out.println();
         String response = pdp.evaluate(processedRequest);
 
-        System.out.println("Response:"+response);
+        System.out.println("Response:" + response);
         try {
             ResponseCtx responseCtx = ResponseCtx.getInstance(getXacmlResponse(response));
             AbstractResult result = responseCtx.getResults().iterator().next();
