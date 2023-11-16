@@ -1,0 +1,57 @@
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+    PolicyId="course-material-access-policy"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
+    Version="1.0">
+    <Description> This policy grants access to a course material only to users who have a bachelor
+        degree or higher in any field </Description>
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">course-material</AttributeValue>
+                    <AttributeDesignator
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+    <!-- <Rule RuleId="deny-rule" Effect="Deny" /> -->
+    <Rule RuleId="permit-rule" Effect="Permit">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.degreeLevel"
+                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
+                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Bachelor</AttributeValue>
+                    </Match>
+                </AllOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.degreeLevel"
+                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
+                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Master</AttributeValue>
+                    </Match>
+                </AllOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.degreeLevel"
+                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
+                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PhD</AttributeValue>
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+    </Rule>
+</Policy>
