@@ -1,0 +1,45 @@
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+    PolicyId="concert-policy"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
+    Version="1.0">
+    <Description>This policy grants access to a concert venue only to users who have a valid vaccine
+        proof credential that shows they are fully vaccinated against COVID-19</Description>
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">conference</AttributeValue>
+                    <AttributeDesignator
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule RuleId="permit-rule" Effect="Permit">
+        <Target>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.vaccineType"
+                            Category="https://api.npoint.io/292a45521e356ed0174"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Full</AttributeValue>
+                    </Apply>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeDesignator
+                        AttributeId="#0.credentialSubject.degreeLevel"
+                        Category="https://api.npoint.io/b7e2e485241a04f89fdc"
+                        Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PhD</AttributeValue>
+                </Match>
+            </AllOf>
+        </Target>
+    </Rule>
+</Policy>
