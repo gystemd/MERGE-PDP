@@ -25,7 +25,7 @@
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
-                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
+                            Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
                             Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Bachelor</AttributeValue>
@@ -35,8 +35,8 @@
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
-                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
-                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
+                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Master</AttributeValue>
                     </Match>
@@ -45,8 +45,8 @@
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
-                            Category="https://www.npoint.io/docs/b7e2e485241a04f89fdc"
-                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
+                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PhD</AttributeValue>
                     </Match>
