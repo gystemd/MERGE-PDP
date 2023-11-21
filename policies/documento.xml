@@ -1,11 +1,15 @@
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="documento"
    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
    Version="1.0">
+   <Description>This Policy grants access to a coding course only if
+      the user has a valid credential that shows they have completed
+      a JavaScript Developer 1 or Java Developer 1 course.
+   </Description>
    <Target>
       <AnyOf>
          <AllOf>
             <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">secret.document</AttributeValue>
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">coding.course</AttributeValue>
                <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
                   Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
                   DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
