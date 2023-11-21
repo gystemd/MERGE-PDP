@@ -38,11 +38,11 @@ public class PDPController {
     public boolean evaluate(@RequestBody String request) {
         String processedRequest= request.substring(1, request.length() - 1).replace("\\", "");
 
-        System.out.println(processedRequest);
-        System.out.println();
+        // System.out.println(processedRequest);
+        // System.out.println();
         String response = pdp.evaluate(processedRequest);
 
-        System.out.println("Response:"+response);
+        // System.out.println("Response:"+response);
         try {
             ResponseCtx responseCtx = ResponseCtx.getInstance(getXacmlResponse(response));
             AbstractResult result = responseCtx.getResults().iterator().next();
