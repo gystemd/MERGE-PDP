@@ -94,7 +94,7 @@ public class PDPController {
         // registering new attribute finder. so default PDPConfig is needed to change
         AttributeFinder attributeFinder = pdpConfig.getAttributeFinder();
         List<AttributeFinderModule> finderModules = attributeFinder.getModules();
-        finderModules.add(new SSIAttributeFinder());
+        finderModules.add(new DBAttributeFinderModule());
         attributeFinder.setModules(finderModules);
 
         return new PDP(new PDPConfig(attributeFinder, pdpConfig.getPolicyFinder(), null, true));
