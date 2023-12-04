@@ -66,7 +66,9 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
     @Override
     public Set getSupportedIds() {
         Set<String> ids = new HashSet<String>();
+        ids.add("urn:med:vaccine:credential-type");
         ids.add("unipi:degreeType");
+        ids.add("org:developer:developer-type");
         return ids;
     }
 
@@ -86,8 +88,7 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
             }
         }
 
-        String attributeValue = null;
-
+        List<AttributeValue> attributeValues = new ArrayList<AttributeValue>();
         try {
             // Set the URL for the REST request
             String apiUrl = "https://d1-tutorial.giulio-piva-it.workers.dev/subjectAttribute?subjectId=" + subjectId
@@ -123,8 +124,10 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
                 // Now you can work with the JSON data
                 System.out.println("Response: " + jsonResponse.toString(2)); // Pretty print JSON
                 JSONArray resultList = jsonResponse.getJSONArray("results");
-                JSONObject resultObject = resultList.getJSONObject(0);
-                attributeValue = resultObject.getString("AttributeValue");
+                for (int i = 0; i < resultList.length(); i++) {
+                    JSONObject resultObject = resultList.getJSONObject(i);
+                    attributeValues.add(new StringAttribute(resultObject.getString("AttributeValue")));
+                }
             } else {
                 System.out.println("HTTP request failed with response code: " + responseCode);
             }
@@ -135,8 +138,6 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
             e.printStackTrace();
         }
 
-        List<AttributeValue> attributeValues = new ArrayList<AttributeValue>();
-        attributeValues.add(new StringAttribute(attributeValue));
         return new EvaluationResult(new BagAttribute(attributeType, attributeValues));
     }
 

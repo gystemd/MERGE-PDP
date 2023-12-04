@@ -1,14 +1,13 @@
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
-    PolicyId="concert-policy-centralized"
+    PolicyId="course-material-policy-centralized"
     RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
     Version="1.0">
-    <Description>This policy grants access to a concert venue only to users who have a valid vaccine
-        proof credential that shows they are fully vaccinated against COVID-19</Description>
+    <Description></Description>
     <Target>
         <AnyOf>
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">conference-centralized</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">course-material-centralized</AttributeValue>
                     <AttributeDesignator
                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
@@ -17,18 +16,28 @@
             </AllOf>
         </AnyOf>
     </Target>
-
     <Rule RuleId="permit-rule" Effect="Permit">
         <Target>
             <AnyOf>
                 <AllOf>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeDesignator
-                            AttributeId="urn:med:vaccine:credential-type"
+                            AttributeId="unipi:degreeType"
                             Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Partial</AttributeValue>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Bachelor</AttributeValue>
                     </Match>
+                </AllOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeDesignator
+                            AttributeId="unipi:degreeType"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MSc</AttributeValue>
+                    </Match>
+                </AllOf>
+                <AllOf>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeDesignator
                             AttributeId="unipi:degreeType"
