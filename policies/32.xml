@@ -1,0 +1,319 @@
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="policytrentadue"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
+    Version="1.0">
+    <Description>Test policy with 32 attributes</Description>
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">resource32</AttributeValue>
+                    <AttributeDesignator
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule Effect="Permit" RuleId="permit-role">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value0</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute0"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"/>
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value1</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute1"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value2</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute2"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value3</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute3"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value4</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute4"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value5</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute5"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value6</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute6"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value7</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute7"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value8</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute8"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value9</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute9"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value10</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute10"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true" />
+
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value11</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute11"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value12</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute12"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value13</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute13"
+                            Category="test-schema.org"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value14</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute14"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value15</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute15"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value16</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute16"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value17</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute17"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value18</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute18"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value19</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute19"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value20</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute20"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value21</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute21"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value22</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute22"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value23</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute23"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value24</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute24"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value25</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute25"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value26</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute26"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value27</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute27"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value28</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute28"
+                            Category="test-schema.org"
+                            MustBePresent="true"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value29</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute29"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value30</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute30"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value31</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="#0.credentialSubject.attribute31"
+                            Category="test-schema.org"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string" />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+    </Rule>
+
+    <!-- <Rule RuleId="deny-rule" Effect="Deny" /> -->
+</Policy>
