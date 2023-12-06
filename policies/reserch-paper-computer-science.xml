@@ -1,5 +1,5 @@
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
-    PolicyId="research-paper-access-policy-centralized"
+    PolicyId="research-paper-access-policy"
     RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
     Version="1.0">
     <Description>This policy grants access to a research paper only to users who have a PhD degree
@@ -26,7 +26,7 @@
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
                             Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
-                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PhD</AttributeValue>
                     </Match>
@@ -34,7 +34,7 @@
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeField"
                             Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
-                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Computer Science</AttributeValue>
                     </Match>

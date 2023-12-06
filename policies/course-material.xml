@@ -26,7 +26,7 @@
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
                             Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
-                            Issuer="did:ethr:0x539:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Bachelor</AttributeValue>
                     </Match>
@@ -36,7 +36,7 @@
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
                             Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
-                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Master</AttributeValue>
                     </Match>
@@ -46,7 +46,7 @@
                         <AttributeDesignator
                             AttributeId="#0.credentialSubject.degreeLevel"
                             Category="https://api.npoint.io/92e56cd3a26b31bfcd14"
-                            Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                            Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                             DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                         <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PhD</AttributeValue>
                     </Match>

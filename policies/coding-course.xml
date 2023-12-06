@@ -28,7 +28,7 @@
                      AttributeId="#0.credentialSubject.achievement"
                      Category="https://beta.api.schemas.serto.id/v1/public/program-completion-certificate/1.0/json-schema.json"
                      DataType="http://www.w3.org/2001/XMLSchema#string"
-                     Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                     Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                      MustBePresent="true"/>
                </Match>
                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -37,7 +37,7 @@
                      AttributeId="#1.credentialSubject.achievement"
                      Category="https://beta.api.schemas.serto.id/v1/public/program-completion-certificate/1.0/json-schema.json"
                      DataType="http://www.w3.org/2001/XMLSchema#string"
-                     Issuer="did:ethr:0x13881:0x8aadd53dc222d0490f0804a31792a635922a43a8"
+                     Issuer="did:ethr:0x1:0x8aadd53dc222d0490f0804a31792a635922a43a8"
                      MustBePresent="true"/>
                </Match>
             </AllOf>
