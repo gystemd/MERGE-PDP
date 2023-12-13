@@ -1,6 +1,7 @@
 package com.example.xassi;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -37,12 +38,16 @@ public class PDPController {
     @PostMapping("/evaluate")
     public boolean evaluate(@RequestBody String request) {
         String processedRequest= request.substring(1, request.length() - 1).replace("\\", "");
-
-        // System.out.println(processedRequest);
-        // System.out.println();
+        long start = System.currentTimeMillis();
         String response = pdp.evaluate(processedRequest);
+        long end = System.currentTimeMillis();
+        long elapsedTime = end - start;
+        Long pipTime = DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum();
+        Long evaluationTime = elapsedTime - pipTime;
+        appendToFile("measurements/pip.txt", String.valueOf(pipTime) + "\n" );
+        appendToFile("measurements/pdp.txt", String.valueOf(evaluationTime) + "\n");
 
-        // System.out.println("Response:"+response);
+        DBAttributeFinderModule.responseTimes.clear();
         try {
             ResponseCtx responseCtx = ResponseCtx.getInstance(getXacmlResponse(response));
             AbstractResult result = responseCtx.getResults().iterator().next();
@@ -51,13 +56,6 @@ public class PDPController {
                 return true;
             } else {
                 return false;
-                // List<Advice> advices = result.getAdvices();
-                // for (Advice advice : advices) {
-                // List<AttributeAssignment> assignments = advice.getAssignments();
-                // for (AttributeAssignment assignment : assignments) {
-                // System.out.println("Advice : " + assignment.getContent() + "\n\n");
-                // }
-                // }
             }
         } catch (ParsingException e) {
             e.printStackTrace();
@@ -129,5 +127,13 @@ public class PDPController {
             }
         }
         return doc.getDocumentElement();
+    }
+
+    private static void appendToFile(String filename, String data) {
+        try (FileWriter writer = new FileWriter(filename, true)) {
+            writer.append(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

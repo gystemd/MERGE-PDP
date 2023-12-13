@@ -45,7 +45,7 @@ import org.json.JSONObject;
 public class DBAttributeFinderModule extends AttributeFinderModule {
 
     private URI defaultSubjectId;
-
+    public static final List<Long> responseTimes = new ArrayList<Long>();
     public DBAttributeFinderModule() {
 
         try {
@@ -69,6 +69,10 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
         ids.add("urn:med:vaccine:credential-type");
         ids.add("unipi:degreeType");
         ids.add("org:developer:developer-type");
+        ids.add("org:attribute");
+        for (int i = 1; i <= 63; i++) {
+            ids.add("org:attribute:" + i);
+        }
         return ids;
     }
 
@@ -90,11 +94,11 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
 
         List<AttributeValue> attributeValues = new ArrayList<AttributeValue>();
         try {
-            // Set the URL for the REST request
-            String apiUrl = "https://d1-tutorial.giulio-piva-it.workers.dev/subjectAttribute?subjectId=" + subjectId
-                    + "&AttributeIdentifier=" + attributeId.toString()
+            String endpoint1 = "subjectAttribute";
+            String endpoint2 = "distributed";
+            String apiUrl = "https://d1-tutorial.giulio-piva-it.workers.dev/" + endpoint2
+                    + "?subjectId=" + subjectId + "&AttributeIdentifier=" + attributeId.toString()
                     + "&AttributeCategory=" + category.toString();
-            System.out.println(apiUrl);
             URL url = new URL(apiUrl);
 
             // Open a connection to the URL
@@ -104,7 +108,12 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
             connection.setRequestMethod("GET");
 
             // Get the response code
+            long startTime = System.currentTimeMillis();
             int responseCode = connection.getResponseCode();
+            long endTime = System.currentTimeMillis();
+            long duration = (endTime - startTime);
+            responseTimes.add(duration);
+            // System.out.println("Response time: " + duration + "ms");
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 // Read the response
@@ -122,11 +131,12 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
                 JSONObject jsonResponse = new JSONObject(response.toString());
 
                 // Now you can work with the JSON data
-                System.out.println("Response: " + jsonResponse.toString(2)); // Pretty print JSON
+                // System.out.println("Response: " + jsonResponse.toString(2)); // Pretty print JSON
                 JSONArray resultList = jsonResponse.getJSONArray("results");
                 for (int i = 0; i < resultList.length(); i++) {
                     JSONObject resultObject = resultList.getJSONObject(i);
-                    attributeValues.add(new StringAttribute(resultObject.getString("AttributeValue")));
+                    attributeValues
+                            .add(new StringAttribute(resultObject.getString("AttributeValue")));
                 }
             } else {
                 System.out.println("HTTP request failed with response code: " + responseCode);
