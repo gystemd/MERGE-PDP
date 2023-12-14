@@ -1,4 +1,5 @@
 package com.example.xassi;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,15 +37,38 @@ public class PDPController {
     }
 
     @PostMapping("/evaluate")
-    public boolean evaluate(@RequestBody String request) {
-        String processedRequest= request.substring(1, request.length() - 1).replace("\\", "");
+    public synchronized boolean evaluate(@RequestBody String request) {
+        String processedRequest = request.substring(1, request.length() - 1).replace("\\", "");
+        String response = pdp.evaluate(processedRequest);
+        try {
+            ResponseCtx responseCtx = ResponseCtx.getInstance(getXacmlResponse(response));
+            AbstractResult result = responseCtx.getResults().iterator().next();
+            System.out.println("Result : " + result.getDecision());
+            if (AbstractResult.DECISION_PERMIT == result.getDecision()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    @PostMapping("/evaluateSync")
+    public synchronized boolean evaluateSync(@RequestBody String request) {
+        String processedRequest = request.substring(1, request.length() - 1).replace("\\", "");
         long start = System.currentTimeMillis();
         String response = pdp.evaluate(processedRequest);
         long end = System.currentTimeMillis();
         long elapsedTime = end - start;
-        Long pipTime = DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum();
-        Long evaluationTime = elapsedTime - pipTime;
-        appendToFile("measurements/pip.txt", String.valueOf(pipTime) + "\n" );
+        Long pipTime =
+                DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum()
+                        / DBAttributeFinderModule.responseTimes.size();
+        Long evaluationTime = elapsedTime
+                - DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum();
+        appendToFile("measurements/pip.txt", String.valueOf(pipTime) + "\n");
         appendToFile("measurements/pdp.txt", String.valueOf(evaluationTime) + "\n");
 
         DBAttributeFinderModule.responseTimes.clear();
@@ -62,8 +86,6 @@ public class PDPController {
         }
         return false;
     }
-
-
 
     private static void initBalana() {
 

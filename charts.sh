@@ -7,7 +7,10 @@ echo "" > measurements/pip.txt
 artillery run artillery-tests/4.yml
 mkdir measurements/4/
 cp measurements/pdp.txt measurements/4/pdp-4.txt
+# remove the first three lines of the file
+sed -i '1,3d' measurements/4/pdp-4.txt
 cp measurements/pip.txt measurements/4/pip-4.txt
+sed -i '1,3d' measurements/4/pip-4.txt
 
 
 echo "" > measurements/pdp.txt
