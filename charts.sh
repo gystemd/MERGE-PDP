@@ -1,6 +1,8 @@
 rm -r measurements/4/
 rm -r measurements/8/
 rm -r measurements/16/
+rm -r measurements/32/
+rm -r measurements/64/
 
 echo "" > measurements/pdp.txt
 echo "" > measurements/pip.txt
@@ -27,6 +29,19 @@ mkdir measurements/16/
 cp measurements/pdp.txt measurements/16/pdp-16.txt
 cp measurements/pip.txt measurements/16/pip-16.txt
 
+echo "" > measurements/pdp.txt
+echo "" > measurements/pip.txt
+artillery run artillery-tests/32.yml
+mkdir measurements/32/
+cp measurements/pdp.txt measurements/32/pdp-32.txt
+cp measurements/pip.txt measurements/32/pip-32.txt
+
+echo "" > measurements/pdp.txt
+echo "" > measurements/pip.txt
+artillery run artillery-tests/64.yml
+mkdir measurements/64/
+cp measurements/pdp.txt measurements/64/pdp-64.txt
+cp measurements/pip.txt measurements/64/pip-64.txt
 
 
 

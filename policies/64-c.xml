@@ -1,0 +1,539 @@
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="policy-64c"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides"
+    Version="1.0">
+    <Description>Test centralized policy with 64 attributes</Description>
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">resource64c</AttributeValue>
+                    <AttributeDesignator
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                        DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule Effect="Permit" RuleId="permit-role">
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value0</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value1</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:1"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value2</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:2"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value3</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:3"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value4</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:4"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value5</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:5"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value6</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:6"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value7</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:7"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value8</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:8"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value9</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:9"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value10</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:10"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value11</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:11"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value12</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:12"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value13</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:13"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value14</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:14"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value15</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:15"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value16</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:16"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value17</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:17"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value18</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:18"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value19</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:19"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value20</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:20"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value21</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:21"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value22</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:22"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value23</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:23"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value24</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:24"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value25</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:25"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value26</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:26"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value27</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:27"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value28</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:28"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value29</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:29"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value30</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:30"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value31</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:31"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value32</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:32"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value33</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:33"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value34</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:34"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value35</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:35"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value36</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:36"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value37</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:37"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value38</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:38"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value39</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:39"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value40</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:40"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value41</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:41"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value42</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:42"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value43</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:43"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value44</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:44"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value45</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:45"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value46</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:46"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value47</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:47"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value48</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:48"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value49</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:49"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value50</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:50"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value51</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:51"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value52</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:52"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value53</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:53"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value54</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:54"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value55</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:55"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value56</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:56"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value57</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:57"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value58</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:58"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value59</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:59"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value60</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:60"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value61</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:61"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value62</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:62"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">value63</AttributeValue>
+                        <AttributeDesignator
+                            AttributeId="org:attribute:63"
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true" />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+    </Rule>
+</Policy>

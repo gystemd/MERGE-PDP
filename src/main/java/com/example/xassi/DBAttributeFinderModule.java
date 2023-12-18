@@ -79,7 +79,7 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
     @Override
     public EvaluationResult findAttribute(URI attributeType, URI attributeId, String issuer,
             URI category, EvaluationCtx context) {
-
+        System.out.println(attributeId.toString());
         // retrieve the subject id from the request
         String subjectId = "";
         EvaluationResult result =
