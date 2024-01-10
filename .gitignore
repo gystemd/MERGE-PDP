@@ -34,3 +34,5 @@ build/
 .vscode/
 # ignore everything in measurements
 figures/
+
+measurements/*
