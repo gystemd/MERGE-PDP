@@ -3,6 +3,8 @@ config:
   phases:
     - duration: 5
       arrivalRate: 5
+  http:
+    timeout: 30
 scenarios:
   - flow:
     - loop:

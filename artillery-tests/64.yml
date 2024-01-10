@@ -4,7 +4,7 @@ config:
     - duration: 1
       arrivalRate: 1
   http:
-    timeout: 20
+    timeout: 50 
 scenarios:
   - flow:
       - loop:

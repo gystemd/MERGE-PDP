@@ -6,7 +6,7 @@ def calculate_mean_time(file_path):
     try:
         with open(file_path) as f:
             measurements = f.readlines()
-        measurements = [int(x.strip()) for x in measurements[1:]]
+        measurements = [int(x.strip()) for x in measurements]
         print(measurements)
         return sum(measurements) / len(measurements)
     except FileNotFoundError:
@@ -33,7 +33,6 @@ plt.bar(x, mean_pip_time, label='PIP')
 plt.bar(x, mean_pdp_time, bottom=mean_pip_time, label='PDP')
 plt.xlabel('Number of attributes per policy')
 plt.ylabel('Mean time (ms)')
-plt.title('execution time (multiple DBs)')
 plt.xticks(x, labels)
 plt.legend()
 
@@ -55,6 +54,5 @@ for file in files:
     legend_labels = ['{0} - {1:1.1f} %'.format(i,j) for i,j in zip(labels, percentages)]
     plt.pie(sizes, startangle=90)
     plt.legend( legend_labels, bbox_to_anchor=(-0.40, 1),loc='upper left')
-    plt.title(f'Execution time of {file}-attributes policy (multiple DBs)')
     plt.savefig(f'figures/pie-{file}.png')
     plt.clf()
