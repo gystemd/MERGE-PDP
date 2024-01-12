@@ -96,7 +96,7 @@ public class DBAttributeFinderModule extends AttributeFinderModule {
         try {
             String endpoint1 = "subjectAttribute";
             String endpoint2 = "distributed";
-            String apiUrl = "https://d1-tutorial.giulio-piva-it.workers.dev/" + endpoint2
+            String apiUrl = "https://d1-tutorial.giulio-piva-it.workers.dev/" + endpoint1
                     + "?subjectId=" + subjectId + "&AttributeIdentifier=" + attributeId.toString()
                     + "&AttributeCategory=" + category.toString();
             URL url = new URL(apiUrl);
