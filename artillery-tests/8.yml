@@ -1,8 +1,8 @@
 config:
   target: 'http://localhost:8080'
   phases:
-    - duration: 5
-      arrivalRate: 5
+    - duration: 1
+      arrivalRate: 1
   http:
     timeout: 30
 scenarios:

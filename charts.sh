@@ -4,6 +4,7 @@ rm -r measurements/16/
 rm -r measurements/32/
 rm -r measurements/64/
 
+echo "running 4"
 rm measurements/pdp.txt
 rm measurements/pip.txt
 touch measurements/pdp.txt
@@ -12,9 +13,9 @@ artillery run artillery-tests/4.yml
 mkdir measurements/4/
 cp measurements/pdp.txt measurements/4/pdp-4.txt
 # remove the first three lines of the file
-sed -i '1,3d' measurements/4/pdp-4.txt
+# sed -i '1,3d' measurements/4/pdp-4.txt
 cp measurements/pip.txt measurements/4/pip-4.txt
-sed -i '1,3d' measurements/4/pip-4.txt
+# sed -i '1,3d' measurements/4/pip-4.txt
 
 
 rm measurements/pdp.txt

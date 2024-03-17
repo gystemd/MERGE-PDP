@@ -5,14 +5,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.wso2.balana.Balana;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.wso2.balana.PDP;
 import org.wso2.balana.PDPConfig;
 import org.wso2.balana.ParsingException;
@@ -55,6 +59,39 @@ public class PDPController {
         return false;
     }
 
+    @GetMapping("/resources-list")
+    public void getResourcesList() {
+
+        try {
+            // for each file in the directory
+            File folder = new File("policies");
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                System.out.println("File : " + file.getName());
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(file);
+                doc.getDocumentElement().normalize();
+
+                NodeList nList = doc.getElementsByTagName("AttributeDesignator");
+
+                for (int temp = 0; temp < nList.getLength(); temp++) {
+                    Node nNode = nList.item(temp);
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element eElement = (Element) nNode;
+                        String attributeId = eElement.getAttribute("AttributeId");
+                        String category = eElement.getAttribute("Category");
+                        if (attributeId.startsWith("#")) {
+                            System.out.println("AttributeId : " + attributeId);
+                            System.out.println("Category : " + category);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @PostMapping("/evaluateSync")
     public synchronized boolean evaluateSync(@RequestBody String request) {
@@ -64,8 +101,8 @@ public class PDPController {
         long end = System.currentTimeMillis();
         long elapsedTime = end - start;
         Long pipTime =
-                DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum()
-                        / DBAttributeFinderModule.responseTimes.size();
+                DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum();
+                        // / DBAttributeFinderModule.responseTimes.size();
         Long evaluationTime = elapsedTime
                 - DBAttributeFinderModule.responseTimes.stream().mapToLong(Long::longValue).sum();
         appendToFile("measurements/pip.txt", String.valueOf(pipTime) + "\n");
